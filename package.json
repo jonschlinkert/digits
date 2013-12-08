@@ -1,0 +1,38 @@
+{
+  "name": "digits",
+  "description": " Pad numbers with zeros. Automatically pad the number of digits based on the length of the array, or explicitly pass in the number of digits to use.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/digits",
+  "author": {
+    "name": "Jon Schlinkert",
+    "url": "https://github.com/jonschlinkert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonschlinkert/digits.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/digits/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jonschlinkert/digits/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "keywords": [
+    "grunt task",
+    "build",
+    "handlebars helper",
+    "underscore mixin",
+    "site generator",
+    "component generator",
+    "blog generator",
+    "handlebars",
+    "templates"
+  ]
+}
