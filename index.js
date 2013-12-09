@@ -1,16 +1,26 @@
 /**
+ * digits
+ * Copyright (c) 2013 Jon Schlinkert
+ * Licensed under the MIT License (MIT)
+ */
+
+'use strict';
+
+var path = require('path');
+
+
+/**
  * Pad numbers with zeros.
  * Automatically pad the number of digits based on the length of the array,
  * or explicitly pass in the number of digits to use.
  *
  * @param  {Number} num  The number to pad.
- * @param  {Object} opts Options object with `digits` and `total` properties.
+ * @param  {Object} opts Options object with `digits` and `auto` properties.
  *    {
- *      total: array.length // pass in the length of the array
- *      digits: 4 // alternatively, pass in the number of digits to use
+ *      auto: array.length // pass in the length of the array
+ *      digits: 4          // or pass in the number of digits to use
  *    }
- *
- * @return {Number}      The paded number with zeros prepended
+ * @return {Number}      The padded number with zeros prepended
  *
  * @examples:
  *  1      => 000001
@@ -20,17 +30,20 @@
  *  10000  => 010000
  *  100000 => 100000
  */
-exports.pad = function(num, opts) {
-  opts = opts || {};
-  opts.digits = 7 - opts.digits || 4;
-  opts.total = 7 - String(opts.total).length || digits;
-  if (num < 1000000 && num > 99999) {num = '0' + num.toString(); }
-  if (num < 100000 && num > 9999) {num = '00' + num.toString(); }
-  if (num < 10000 && num > 999) {num = '000' + num.toString(); }
-  if (num < 1000 && num > 99) {num = '0000' + num.toString(); }
-  if (num < 100 && num > 9) {num = '00000' + num.toString(); }
-  if (num < 10) {num = '000000' + num.toString(); }
-  return num.substring(opts.total);
+
+exports.pad = function (num, opts) {
+  var digits = opts.digits || 3;
+  if(opts.auto && typeof opts.auto === 'number';) {
+    digits = String(opts.auto).length;
+  }
+  var lenDiff = digits - String(num).length;
+  var padding = '';
+  if (lenDiff > 0) {
+    while (lenDiff--) {
+      padding += '0';
+    }
+  }
+  return padding + num;
 };
 
 /**
@@ -38,10 +51,41 @@ exports.pad = function(num, opts) {
  * @param  {String} str The string from which to strip digits
  * @return {String}     The modified string
  */
-exports.strip = function(str, opts) {
-  str = path.basename(str, path.extname(str));
-  opts = opts || {};
-  str = (opts.left !== false) ? str.replace(/^\d+\-?/gi, '') : str;
-  str = (opts.right === true) ? str.replace(/\-?\d+$/gi, '') : str;
-  return str;
-};
+
+exports.stripleft = function(str, opts) {
+  return str.replace(/^\d+\-?/g, '');
+}
+
+/**
+ * Strip trailing digits from a string
+ * @param  {String} str The string from which to strip digits
+ * @return {String}     The modified string
+ */
+
+exports.stripright = function(str, opts) {
+  return str.replace(/\-?\d+$/g, '');
+}
+
+/**
+ * Count digits on the left side of a string
+ * @param  {String} str The string with digits to count
+ * @return {String}     The modified string
+ * @example
+ *  "001-foo.md" => 3
+ */
+
+exports.countleft = function(str, opts) {
+  return String(str.match(/^\d+/g)).length;
+}
+
+/**
+ * Count digits on the right side of a string
+ * @param  {String} str The string with digits to count
+ * @return {String}     The modified string
+ * @example
+ *  "001-foo.md" => 3
+ */
+
+exports.countright = function(str, opts) {
+  return String(str.match(/\d+$/g)).length;
+}
