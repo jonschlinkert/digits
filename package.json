@@ -1,7 +1,7 @@
 {
   "name": "digits",
   "description": " Pad numbers with zeros. Automatically pad the number of digits based on the length of the array, or explicitly pass in the number of digits to use.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/jonschlinkert/digits",
   "author": {
     "name": "Jon Schlinkert",
