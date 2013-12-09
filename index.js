@@ -33,7 +33,7 @@ var path = require('path');
 
 exports.pad = function (num, opts) {
   var digits = opts.digits || 3;
-  if(opts.auto && typeof opts.auto === 'number';) {
+  if(opts.auto && typeof opts.auto === 'number') {
     digits = String(opts.auto).length;
   }
   var lenDiff = digits - String(num).length;
