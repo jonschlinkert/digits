@@ -6,9 +6,6 @@
 
 'use strict';
 
-var path = require('path');
-
-
 /**
  * Pad numbers with zeros.
  * Automatically pad the number of digits based on the length of the array,
@@ -52,9 +49,9 @@ exports.pad = function (num, opts) {
  * @return {String}     The modified string
  */
 
-exports.stripleft = function(str, opts) {
+exports.stripleft = function(str) {
   return str.replace(/^\d+\-?/g, '');
-}
+};
 
 /**
  * Strip trailing digits from a string
@@ -62,9 +59,9 @@ exports.stripleft = function(str, opts) {
  * @return {String}     The modified string
  */
 
-exports.stripright = function(str, opts) {
+exports.stripright = function(str) {
   return str.replace(/\-?\d+$/g, '');
-}
+};
 
 /**
  * Count digits on the left side of a string
@@ -74,9 +71,9 @@ exports.stripright = function(str, opts) {
  *  "001-foo.md" => 3
  */
 
-exports.countleft = function(str, opts) {
+exports.countleft = function(str) {
   return String(str.match(/^\d+/g)).length;
-}
+};
 
 /**
  * Count digits on the right side of a string
@@ -86,6 +83,6 @@ exports.countleft = function(str, opts) {
  *  "001-foo.md" => 3
  */
 
-exports.countright = function(str, opts) {
+exports.countright = function(str) {
   return String(str.match(/\d+$/g)).length;
-}
+};
