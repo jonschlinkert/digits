@@ -3,7 +3,18 @@
 > Pad numbers with zeros. Automatically pad the number of digits based on the length of the array, or explicitly pass in the number of digits to use.
 
 ## Getting Started
-Install the module with: `npm install digits`
+Install the module with [npm](npmjs.org):
+
+```bash
+npm i digits --save
+```
+Or install with [Bower](https://github.com/bower/bower):
+
+```bash
+bower install digits
+```
+
+## Usage
 
 ```javascript
 var digits = require('digits');
