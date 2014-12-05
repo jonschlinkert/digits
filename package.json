@@ -1,7 +1,7 @@
 {
   "name": "digits",
-  "description": " Pad numbers with zeros. Automatically pad the number of digits based on the length of the array, or explicitly pass in the number of digits to use.",
-  "version": "0.1.4",
+  "description": "Pad numbers with zeros. Automatically pad the number of digits based on the length of the array, or explicitly pass in the number of digits to use.",
+  "version": "0.2.0",
   "homepage": "https://github.com/jonschlinkert/digits",
   "author": {
     "name": "Jon Schlinkert",
@@ -14,25 +14,34 @@
   "bugs": {
     "url": "https://github.com/jonschlinkert/digits/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/jonschlinkert/digits/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/jonschlinkert/digits/blob/master/LICENSE-MIT"
+  },
   "main": "index.js",
   "engines": {
     "node": ">= 0.8.0"
   },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "dependencies": {
+    "longest": "^0.2.1",
+    "pad-left": "^0.2.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
   "keywords": [
-    "grunt task",
-    "build",
-    "handlebars helper",
-    "underscore mixin",
-    "site generator",
-    "component generator",
-    "blog generator",
-    "handlebars",
-    "templates"
+    "amount",
+    "digit",
+    "digits",
+    "helper",
+    "mixin",
+    "number",
+    "pad",
+    "padded",
+    "padding"
   ]
 }
